@@ -3,13 +3,9 @@
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-class JwtToken{
-    
-    public function __construct()
-    {
-       require_once PLUGIN_PATH.'/vendor/autoload.php';
-    }
-}
+require_once(plugin_dir_path(__FILE__)."/vendor/autoload.php");
+
+
 
 // Función para obtener un trabajador por ID
 function obtener_trabajador($request)
@@ -68,13 +64,13 @@ function signup_trabajador($request)
 
     $jwt_token = $jwt;
 
-    print_r($jwt_token);
+    //print_r($jwt_token);
 
     // Insertar el trabajador en la base de datos
 
     $sql = "insert into $tabla_trabajadores(dni,nombre,apellido,usuario,email,password,token) values ('$dni','$nombre','$apellido','$usuario','$email','$password','$jwt_token')";
 
-     var_dump($sql);
+   //  var_dump($sql);
 
     if ($wpdb->query($sql)) {
         wp_send_json([
