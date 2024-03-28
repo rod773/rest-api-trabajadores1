@@ -3,9 +3,13 @@
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-require_once(plugin_dir_path(__FILE__)."/vendor/autoload.php");
-
-
+class JwtToken{
+    
+    public function __construct()
+    {
+       require_once PLUGIN_PATH.'/vendor/autoload.php';
+    }
+}
 
 // Función para obtener un trabajador por ID
 function obtener_trabajador($request)
